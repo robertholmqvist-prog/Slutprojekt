@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  height: 70px;
+  background-color: black;
+  z-index: 100;
+}
+header {
+  height: 500px;
+  background-color: red;
+}
