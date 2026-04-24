@@ -36,9 +36,9 @@ p {
 #search_container {
   display: flex;
   justify-content: center;
-  margin: 150px auto 0 auto;
+  margin: 15% auto 0 auto;
   background-color: white;
-  height: 100px;
+  height: 15%;
   width: 70%;
   border-radius: 10px;
 }
@@ -53,5 +53,10 @@ p {
   outline: none;
   border: none;
 
+  cursor: pointer;
+
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+#search input {
+  margin-left: 0px;
 }
