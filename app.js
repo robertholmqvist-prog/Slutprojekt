@@ -32,6 +32,25 @@ function sökplats() {
     });
 }
 function visaVäder(väder, geoname) {
-  let resultatoutput = document.getElementById("resultat");
-  resultatoutput.innerHTML = `<h2>temp i ${geoname}: ${väder.current.temperature_2m}</h2>`;
+  let resultatoutput = document.getElementById("resultat_innehåll");
+  let resultatRubrik = document.getElementById("resultat_rubrik");
+  resultatRubrik.innerHTML = `<h2>Tempratur i ${geoname}: ${väder.current.temperature_2m}</h2>`;
+  resultatoutput.innerHTML = `<p>Väderkod: ${väder.current.weather_code}</p>`;
+  if (väder.current.temperature_2m < 0) {
+    resultatRubrik.style.backgroundColor = "rgb(51, 51, 204)";
+  } else if (väder.current.temperature_2m < 15) {
+    resultatRubrik.style.backgroundColor = "rgb(123, 123, 123)";
+  } else {
+    resultatRubrik.style.backgroundColor = "rgb(235, 121, 39)";
+  }
+  resultatRubrik.style.height = "230px";
+  resultatRubrik.style.width = "600px";
+  resultatRubrik.style.margin = "50px";
 }
+
+let sök = document.getElementById("search");
+sök.addEventListener("keyup", (e) => {
+  if (e.code === "Enter") {
+    sökplats();
+  }
+});
