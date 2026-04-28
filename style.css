@@ -35,7 +35,6 @@ p {
 
 #search_container {
   display: flex;
-  justify-content: center;
   margin: 15% auto 0 auto;
   background-color: white;
   height: 15%;
@@ -43,11 +42,11 @@ p {
   border-radius: 10px;
 }
 #search {
-  width: 250px;
+  width: 500px;
   height: 20px;
   font-size: 18px;
   border-radius: 10px;
-  padding: 15px 150px;
+  padding: 15px 0;
   margin: 25px;
 
   outline: none;

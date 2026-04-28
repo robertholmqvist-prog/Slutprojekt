@@ -1,55 +1,37 @@
 function sökplats() {
   console.log("Sökplats-funktionen har anropats.");
+
   let searchInput = document.getElementById("search").value;
-  console.log("Användarens sökinput:", searchInput);
 
   fetch(
-    `https://api.opentripmap.com/0.1/en/places/geoname?name=${searchInput}&apikey=5ae2e3f221c38a28845f05b630fe00001ac2b15a38b8dbec506cdc7a`,
+    `https://nominatim.openstreetmap.org/search?format=json&q=${searchInput}`,
   )
     .then((res) => res.json())
     .then((data) => {
       console.log("Geoname data:", data);
-      let lat = data.lat;
-      let lon = data.lon;
+
+      let lat = data[0].lat;
+      let lon = data[0].lon;
+
       return fetch(
-        `https://api.opentripmap.com/0.1/en/places/bbox?lon_min=${lon - 0.01}&lat_min=${lat - 0.01}&lon_max=${lon + 0.01}&lat_max=${lat + 0.01}&apikey=5ae2e3f221c38a28845f05b630fe00001ac2b15a38b8dbec506cdc7a`,
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`,
       );
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("Places:", data);
-      let gon = data.features[0];
-      console.log(gon.properties.xid);
-      console.log(gon.properties.name);
-      let ko = gon.properties.xid;
-      return fetch(
-        `https://api.opentripmap.com/0.1/en/places/xid/${ko}?apikey=5ae2e3f221c38a28845f05b630fe00001ac2b15a38b8dbec506cdc7a`,
-      );
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      visaResultat(data);
     })
 
-    .catch((error) => {
-      console.error("Fel vid hämtning av geoname data:", error);
+    .then((res) => res.json())
+    .then((weather) => {
+      console.log("Väder data:", weather);
+      visaVäder(weather, searchInput);
+
+      console.log("Temp:", weather.current.temperature_2m);
+      console.log("Kod:", weather.current.weather_code);
+    })
+
+    .catch((err) => {
+      console.log("Fel:", err);
     });
 }
-function visaResultat(data) {
-  let resultatdiv = document.getElementById("resultat");
-
-  let bild = "";
-
-  if (data.preview && data.preview.source) {
-    let url = encodeURI(data.preview.source);
-
-    bild = `<img src="${url}" width="300">`;
-  }
-
-  resultatdiv.innerHTML = `
-    <h2>${data.name || "Okänd plats"}</h2>
-    <p>${data.wikipedia_extracts?.text || "Ingen beskrivning"}</p>
-    ${bild}
-  `;
+function visaVäder(väder, geoname) {
+  let resultatoutput = document.getElementById("resultat");
+  resultatoutput.innerHTML = `<h2>temp i ${geoname}: ${väder.current.temperature_2m}</h2>`;
 }
