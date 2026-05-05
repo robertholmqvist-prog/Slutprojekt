@@ -37,6 +37,8 @@ function visaVäder(väder, geoname) {
   let tabell = document.getElementById("tabell");
   resultatRubrik.innerHTML = `<h2>Tempratur i ${geoname}: ${väder.current.temperature_2m} °C</h2>`;
 
+  fylltabell(väder);
+
   if (väder.current.temperature_2m < 0) {
     resultatRubrik.style.backgroundColor = "rgb(51, 51, 204)";
   } else if (väder.current.temperature_2m < 15) {
@@ -51,6 +53,26 @@ function visaVäder(väder, geoname) {
   document.getElementById("resultat").style.height = "750px";
   document.getElementById("resultat").scrollIntoView(true);
   document.getElementById("tabell").style.display = "revert";
+}
+function fylltabell(väder) {
+  let tabell = document.getElementById("tabell");
+  tabell.innerHTML = `
+    <tr>
+      <th>Dag</th>
+      <th>L/H</th>
+      <th>Vind</th>
+      <th>Regn</th>
+    </tr>
+  `;
+
+  for (let i = 0; (i = väder.daily.time.length); i++) {
+    let dag = väder.daily.time[i];
+    let rad = document.createElement("tr");
+    rad.innerHTML = `
+      <td>${dag}</td>
+    `;
+    tabell.appendChild(rad);
+  }
 }
 
 let sök = document.getElementById("search");
