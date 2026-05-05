@@ -7,21 +7,24 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="bilder/väder_icon.png" />
   </head>
+  <nav>
+    <ul class="menu">
+      <li class="menu-item">
+        <a href="källor.html">Källor</a>
+      </li>
+      <li class="menu-item">
+        <a href="index.html">Hem</a>
+      </li>
+      <li class="menu-item">
+        <a href="om-oss.html">Om oss</a>
+      </li>
+      <li class="menu-item">
+        <a href="#sökskärm">sök</a>
+      </li>
+    </ul>
+  </nav>
   <body>
-    <nav>
-      <ul class="menu">
-        <li class="menu-item">
-          <a href="källor.html">Källor</a>
-        </li>
-        <li class="menu-item">
-          <a href="index.html">Hem</a>
-        </li>
-        <li class="menu-item">
-          <a href="om-oss.html">Om oss</a>
-        </li>
-      </ul>
-    </nav>
-    <header>
+    <header id="sökskärm">
       <h1>Väderapp</h1>
       <p>Välkommen till vår Väderapplikation!</p>
       <div id="search_container">
@@ -29,24 +32,26 @@
         <button type="submit" onclick="sökplats()">Sök</button>
       </div>
     </header>
-    <div id="resultat">
-      <div id="resultat_rubrik"></div>
-      <div id="resultat_innehåll">
-        <table id="tabell">
-          <tr>
-            <th>Dag</th>
-            <th>L/H</th>
-            <th>vind</th>
-            <th>Regn</th>
-          </tr>
-          <tr>
-            <td>d</td>
-          </tr>
-          <tr></tr>
-          <tr></tr>
-        </table>
+    <main>
+      <div id="resultat">
+        <div id="resultat_rubrik"></div>
+        <div id="resultat_innehåll">
+          <table id="tabell">
+            <tr>
+              <th>Dag</th>
+              <th>L/H</th>
+              <th>vind</th>
+              <th>Regn</th>
+            </tr>
+            <tr>
+              <td>d</td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+          </table>
+        </div>
       </div>
-    </div>
+    </main>
     <footer>
       <p>hej hej</p>
     </footer>

@@ -3,13 +3,15 @@
 * {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 nav {
   height: 40px;
   background-color: rgb(255, 255, 255);
   border-bottom: 5px solid rgb(0, 0, 0);
   z-index: 100;
+  position: sticky;
+  top: 0;
 }
 nav a {
   padding: 3px;
@@ -36,6 +38,9 @@ nav a:hover {
   overflow: hidden;
   border: 3px black;
 }
+body {
+  overflow-x: hidden;
+}
 
 header {
   height: 100vh;
@@ -43,24 +48,31 @@ header {
   background-size: cover;
   background-position: center;
 }
+main {
+  display: flex;
+  justify-content: center;
+}
 footer {
   height: 200px;
   background-color: rgb(165, 105, 105);
 }
 #resultat {
-  display: flex;
+  display: block;
   justify-content: center;
-  align-items: center;
   color: black;
-  height: 700px;
 }
 #resultat_rubrik {
-  font-size: 30px;
+  font-size: 25px;
   color: black;
   text-align: center;
   border-radius: 35px;
   align-content: center;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+#resultat_innehåll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -111,4 +123,12 @@ button {
   margin-right: 10px;
   background-color: rgb(255, 255, 255);
   border-color: rgba(255, 255, 255, 0.258);
+}
+table {
+  display: none;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 25px;
+  border: 2px solid black;
+  border-collapse: collapse;
 }

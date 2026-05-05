@@ -35,7 +35,7 @@ function visaVäder(väder, geoname) {
   let resultatoutput = document.getElementById("resultat_innehåll");
   let resultatRubrik = document.getElementById("resultat_rubrik");
   let tabell = document.getElementById("tabell");
-  resultatRubrik.innerHTML = `<h2>Tempratur i ${geoname}: ${väder.current.temperature_2m}</h2>`;
+  resultatRubrik.innerHTML = `<h2>Tempratur i ${geoname}: ${väder.current.temperature_2m} °C</h2>`;
 
   if (väder.current.temperature_2m < 0) {
     resultatRubrik.style.backgroundColor = "rgb(51, 51, 204)";
@@ -44,9 +44,13 @@ function visaVäder(väder, geoname) {
   } else {
     resultatRubrik.style.backgroundColor = "rgb(235, 121, 39)";
   }
+
   resultatRubrik.style.height = "230px";
   resultatRubrik.style.width = "600px";
   resultatRubrik.style.margin = "50px";
+  document.getElementById("resultat").style.height = "750px";
+  document.getElementById("resultat").scrollIntoView(true);
+  document.getElementById("tabell").style.display = "revert";
 }
 
 let sök = document.getElementById("search");
