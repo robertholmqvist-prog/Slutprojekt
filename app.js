@@ -14,7 +14,7 @@ function sökplats() {
       let lon = data[0].lon;
 
       return fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`,
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,rain_sum&hourly=temperature_2m&current=temperature_2m,rain,wind_speed_10m`,
       );
     })
 
@@ -34,8 +34,9 @@ function sökplats() {
 function visaVäder(väder, geoname) {
   let resultatoutput = document.getElementById("resultat_innehåll");
   let resultatRubrik = document.getElementById("resultat_rubrik");
+  let tabell = document.getElementById("tabell");
   resultatRubrik.innerHTML = `<h2>Tempratur i ${geoname}: ${väder.current.temperature_2m}</h2>`;
-  resultatoutput.innerHTML = `<p>Väderkod: ${väder.current.weather_code}</p>`;
+
   if (väder.current.temperature_2m < 0) {
     resultatRubrik.style.backgroundColor = "rgb(51, 51, 204)";
   } else if (väder.current.temperature_2m < 15) {

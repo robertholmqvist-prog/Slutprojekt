@@ -3,14 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Väderapp</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="bilder/väder_icon.png" />
   </head>
   <body>
-    <nav>eeee</nav>
+    <nav>
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="källor.html">Källor</a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html">Hem</a>
+        </li>
+        <li class="menu-item">
+          <a href="om-oss.html">Om oss</a>
+        </li>
+      </ul>
+    </nav>
     <header>
-      <h1>KARTaplik</h1>
-      <p>Välkommen till vår kartapplikation!</p>
+      <h1>Väderapp</h1>
+      <p>Välkommen till vår Väderapplikation!</p>
       <div id="search_container">
         <input type="text" id="search" placeholder="sök plats..." />
         <button type="submit" onclick="sökplats()">Sök</button>
@@ -18,14 +31,24 @@
     </header>
     <div id="resultat">
       <div id="resultat_rubrik"></div>
-      <div id="resultat_innehåll"></div>
+      <div id="resultat_innehåll">
+        <table id="tabell">
+          <tr>
+            <th>Dag</th>
+            <th>L/H</th>
+            <th>vind</th>
+            <th>Regn</th>
+          </tr>
+          <tr>
+            <td>d</td>
+          </tr>
+          <tr></tr>
+          <tr></tr>
+        </table>
+      </div>
     </div>
     <footer>
       <p>hej hej</p>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Adolf_Fredriks_kyrka_2011.JPG/400px-Adolf_Fredriks_kyrka_2011.JPG"
-        alt=""
-      />
     </footer>
     <script src="app.js"></script>
   </body>

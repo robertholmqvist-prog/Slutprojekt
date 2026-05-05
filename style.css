@@ -3,12 +3,40 @@
 * {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 nav {
   height: 40px;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-bottom: 5px solid rgb(0, 0, 0);
   z-index: 100;
 }
+nav a {
+  padding: 3px;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px gray;
+}
+nav a:hover {
+  color: rgb(28, 28, 122);
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px gray;
+}
+.menu {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 10px 20px;
+}
+.menu-item {
+  padding-right: 40px;
+  overflow: hidden;
+  border: 3px black;
+}
+
 header {
   height: 100vh;
   background-image: url("bilder/landnings_bild.jpg");
@@ -24,6 +52,7 @@ footer {
   justify-content: center;
   align-items: center;
   color: black;
+  height: 700px;
 }
 #resultat_rubrik {
   font-size: 30px;
@@ -49,18 +78,20 @@ p {
 
 #search_container {
   display: flex;
+  align-items: center;
   margin: 15% auto 0 auto;
   background-color: white;
   height: 15%;
   width: 70%;
   border-radius: 10px;
+  overflow: hidden;
 }
 #search {
-  width: 500px;
+  width: 750px;
   height: 20px;
   font-size: 18px;
   border-radius: 10px;
-  padding: 15px 0;
+  padding: 15px 0 15px 25px;
   margin: 25px;
 
   outline: none;
@@ -72,4 +103,12 @@ p {
 }
 #search input {
   margin-left: 0px;
+}
+button {
+  cursor: pointer;
+  border-radius: 50px;
+  height: 50px;
+  margin-right: 10px;
+  background-color: rgb(255, 255, 255);
+  border-color: rgba(255, 255, 255, 0.258);
 }
