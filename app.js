@@ -59,20 +59,33 @@ function fylltabell(väder) {
   tabell.innerHTML = `
     <tr>
       <th>Dag</th>
-      <th>L/H</th>
-      <th>Vind</th>
+      <th>H/L</th>
       <th>Regn</th>
     </tr>
   `;
 
   for (let i = 0; i < väder.daily.time.length; i++) {
     let dag = väder.daily.time[i];
+    let högsta = väder.daily.temperature_2m_max[i];
+    let lägsta = väder.daily.temperature_2m_min[i];
+    let regn = väder.daily.rain_sum[i];
     let rad = document.createElement("tr");
     rad.innerHTML = `
       <td>${dag}</td>
+      <td>${högsta}°C / ${lägsta}°C</td>
+      <td>${regn} mm</td>
     `;
     tabell.appendChild(rad);
   }
+  /*for (let i = 0; i < väder.daily.time.length; i++) {
+    let högsta = väder.daily.temperature_2m_max[i];
+    let lägsta = väder.daily.temperature_2m_min[i];
+    let rad = document.createElement("tr");
+    rad.innerHTML = `
+      <td>${högsta}°C / ${lägsta}°C</td>
+    `;
+    tabell.appendChild(rad);
+  }*/
 }
 
 let sök = document.getElementById("search");
