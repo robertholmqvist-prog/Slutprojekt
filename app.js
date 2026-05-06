@@ -65,7 +65,7 @@ function fylltabell(väder) {
     </tr>
   `;
 
-  for (let i = 0; (i = väder.daily.time.length); i++) {
+  for (let i = 0; i < väder.daily.time.length; i++) {
     let dag = väder.daily.time[i];
     let rad = document.createElement("tr");
     rad.innerHTML = `
