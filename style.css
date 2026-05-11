@@ -117,8 +117,7 @@ main {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 #resultat_innehåll {
-  display: flex;
-  justify-content: center;
+  justify-items: center;
   align-items: center;
 }
 /*Tabell*/
@@ -141,7 +140,6 @@ td {
 th,
 td {
   border: 1px solid black;
-  padding: 10px;
 }
 
 p {
