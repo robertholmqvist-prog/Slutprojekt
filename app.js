@@ -38,6 +38,7 @@ function visaVäder(väder, geoname) {
   resultatRubrik.innerHTML = `<h2>Tempratur i ${geoname}: ${väder.current.temperature_2m} °C</h2>`;
 
   fylltabell(väder);
+  /*fylltimtabell(väder);*/
 
   if (väder.current.temperature_2m < 0) {
     resultatRubrik.style.backgroundColor = "rgb(51, 51, 204)";
@@ -49,11 +50,14 @@ function visaVäder(väder, geoname) {
 
   resultatRubrik.style.height = "230px";
   resultatRubrik.style.width = "600px";
-  resultatRubrik.style.margin = "50px";
-  document.getElementById("resultat").style.height = "750px";
+  resultatRubrik.style.margin = "50px auto";
+  document.getElementById("resultat").style.height = "1000px";
   document.getElementById("resultat").scrollIntoView(true);
   document.getElementById("tabell").style.display = "revert";
+  document.getElementById("timtabell").style.display = "revert";
+  document.body.style.overflowY = "auto";
 }
+
 function fylltabell(väder) {
   let tabell = document.getElementById("tabell");
   tabell.innerHTML = `
@@ -65,32 +69,30 @@ function fylltabell(väder) {
   `;
 
   for (let i = 0; i < väder.daily.time.length; i++) {
-    let dag = väder.daily.time[i];
-    let högsta = väder.daily.temperature_2m_max[i];
-    let lägsta = väder.daily.temperature_2m_min[i];
-    let regn = väder.daily.rain_sum[i];
     let rad = document.createElement("tr");
     rad.innerHTML = `
-      <td>${dag}</td>
-      <td>${högsta}°C / ${lägsta}°C</td>
-      <td>${regn} mm</td>
+      <td>${väder.daily.time[i]}</td>
+      <td>${väder.daily.temperature_2m_max[i]}°C / ${väder.daily.temperature_2m_min[i]}°C</td>
+      <td>${väder.daily.rain_sum[i]} mm</td>
     `;
     tabell.appendChild(rad);
   }
-  /*for (let i = 0; i < väder.daily.time.length; i++) {
-    let högsta = väder.daily.temperature_2m_max[i];
-    let lägsta = väder.daily.temperature_2m_min[i];
-    let rad = document.createElement("tr");
-    rad.innerHTML = `
-      <td>${högsta}°C / ${lägsta}°C</td>
-    `;
-    tabell.appendChild(rad);
-  }*/
 }
-
-let sök = document.getElementById("search");
-sök.addEventListener("keyup", (e) => {
-  if (e.code === "Enter") {
-    sökplats();
+function fylltimtabell(väder) {
+  for (let i = 0; i < väder.daily.time.length; i++) {
+    let rad = document.createElement("tr");
+    rad.innerHTML = `
+      <td>${väder.daily.time[i]}</td>
+      <td>${väder.daily.temperature_2m_max[i]}°C / ${väder.daily.temperature_2m_min[i]}°C</td>
+      <td>${väder.daily.rain_sum[i]} mm</td>
+    `;
+    tabell.appendChild(rad);
   }
-});
+
+  let sök = document.getElementById("search");
+  sök.addEventListener("keyup", (e) => {
+    if (e.code === "Enter") {
+      sökplats();
+    }
+  });
+}

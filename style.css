@@ -1,10 +1,12 @@
 /* huvud delar*/
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
+/*navigation*/
 nav {
   height: 40px;
   background-color: rgb(255, 255, 255);
@@ -17,13 +19,13 @@ nav a {
   padding: 3px;
   color: black;
   text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 3px 3px 3px gray;
+  font-family: "Archivo Black", sans-serif;
 }
 nav a:hover {
+  transition: all 0.3s ease;
   color: rgb(28, 28, 122);
   border-radius: 8px;
-  box-shadow: 3px 3px 3px gray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .menu {
   list-style: none;
@@ -38,8 +40,11 @@ nav a:hover {
   overflow: hidden;
   border: 3px black;
 }
+/*huvud sida*/
 body {
   overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100%;
 }
 
 header {
@@ -48,58 +53,26 @@ header {
   background-size: cover;
   background-position: center;
 }
-main {
-  display: flex;
-  justify-content: center;
-}
-footer {
-  height: 200px;
-  background-color: rgb(165, 105, 105);
-}
-#resultat {
-  display: block;
-  justify-content: center;
-  color: black;
-}
-#resultat_rubrik {
-  font-size: 25px;
-  color: black;
-  text-align: center;
-  border-radius: 35px;
-  align-content: center;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-}
-#resultat_innehåll {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 h1 {
+  font-family: "Archivo Black", sans-serif;
   font-size: 50px;
   color: white;
   text-align: center;
   padding-top: 150px;
 }
-p {
-  font-size: 20px;
-  color: white;
-  text-align: center;
-  padding-top: 20px;
-}
-
+/*sökskärm*/
 #search_container {
   display: flex;
   align-items: center;
-  margin: 15% auto 0 auto;
+  margin: 10% auto 0 auto;
   background-color: white;
   height: 15%;
-  width: 70%;
+  width: 80%;
   border-radius: 10px;
   overflow: hidden;
 }
 #search {
-  width: 750px;
+  width: 90%;
   height: 20px;
   font-size: 18px;
   border-radius: 10px;
@@ -124,11 +97,56 @@ button {
   background-color: rgb(255, 255, 255);
   border-color: rgba(255, 255, 255, 0.258);
 }
+/*Resultat*/
+main {
+  display: flex;
+  justify-content: center;
+}
+#resultat {
+  display: block;
+  justify-content: center;
+  color: black;
+  background: linear-gradient(to right, rgb(25, 158, 173), blue);
+}
+#resultat_rubrik {
+  font-size: 25px;
+  color: black;
+  text-align: center;
+  border-radius: 35px;
+  align-content: center;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+#resultat_innehåll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*Tabell*/
 table {
   display: none;
   margin-top: 20px;
-  width: 100%;
+  width: 70%;
+  height: 400px;
   font-size: 25px;
   border: 2px solid black;
-  border-collapse: collapse;
+  border-radius: 10px;
+  border-collapse: separate;
+  table-layout: fixed;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  background-color: rgb(255, 255, 255);
+}
+td {
+  text-align: center;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+p {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
 }
