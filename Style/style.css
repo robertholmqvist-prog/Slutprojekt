@@ -20,9 +20,9 @@ nav a {
   color: black;
   text-decoration: none;
   font-family: "Archivo Black", sans-serif;
+  transition: all 0.3s ease;
 }
 nav a:hover {
-  transition: all 0.3s ease;
   color: rgb(28, 28, 122);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -49,7 +49,7 @@ body {
 
 header {
   height: 100vh;
-  background-image: url("bilder/landnings_bild.jpg");
+  background-image: url("../bilder/landnings_bild.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -59,6 +59,10 @@ h1 {
   color: white;
   text-align: center;
   padding-top: 150px;
+}
+h2 {
+  text-align: center;
+  padding-top: 20px;
 }
 /*sökskärm*/
 #search_container {
@@ -96,6 +100,12 @@ button {
   margin-right: 10px;
   background-color: rgb(255, 255, 255);
   border-color: rgba(255, 255, 255, 0.258);
+}
+.timknappar {
+  min-width: 100px;
+}
+#timtryck {
+  display: none;
 }
 /*Resultat*/
 main {
@@ -147,4 +157,18 @@ p {
   color: white;
   text-align: center;
   padding-top: 20px;
+}
+footer {
+  height: 200px;
+  display: none;
+}
+footer p {
+  color: black;
+}
+/*om oss sida*/
+#om_ossp {
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  padding: 20px;
 }

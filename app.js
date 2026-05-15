@@ -42,7 +42,7 @@ function visaVäder(väder, geoname) {
   resultatRubrik.innerHTML = `<h2>Tempratur i ${geoname}: ${väder.current.temperature_2m} °C</h2>`;
 
   fylltabell(väder);
-  /*fylltimtabell(väder);*/
+  fyllTimtabell("temp");
 
   if (väder.current.temperature_2m < 0) {
     resultatRubrik.style.backgroundColor = "rgb(51, 51, 204)";
@@ -59,6 +59,8 @@ function visaVäder(väder, geoname) {
   document.getElementById("resultat").scrollIntoView(true);
   document.getElementById("tabell").style.display = "revert";
   document.getElementById("timtabell").style.display = "revert";
+  document.getElementById("fot").style.display = "revert";
+  document.getElementById("timtryck").style.display = "revert";
   document.body.style.overflowY = "auto";
 }
 

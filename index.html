@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Väderapp</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/Style/style.css" />
     <link rel="icon" href="bilder/väder_icon.png" />
+    <script
+      src="https://kit.fontawesome.com/8005aba767.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <nav>
     <ul class="menu">
@@ -26,7 +30,7 @@
   <body>
     <header id="sökskärm" alt="bild på berg">
       <h1>Väderapp</h1>
-      <p>Välkommen till vår Väderapplikation!</p>
+      <h2>Välkommen till vår Väderapplikation!</h2>
       <div id="search_container">
         <input type="text" id="search" placeholder="sök plats..." />
         <button type="submit" onclick="sökplats()">Sök</button>
@@ -41,10 +45,19 @@
               <th>Tid</th>
               <th>Data</th>
             </tr>
-            <div id="timkmappar">
-              <button onclick="fyllTimtabell('temp')">Temperatur</button>
-              <button onclick="fyllTimtabell('vind')">Vind</button>
-              <button onclick="fyllTimtabell('regn')">Regn</button>
+            <div id="timtryck">
+              <button class="timknappar" onclick="fyllTimtabell('temp')">
+                Temperatur
+                <i class="fa-solid fa-temperature-high"></i>
+              </button>
+              <button class="timknappar" onclick="fyllTimtabell('vind')">
+                Vind
+                <i class="fa-solid fa-wind"></i>
+              </button>
+              <button class="timknappar" onclick="fyllTimtabell('regn')">
+                Regn
+                <i class="fa-solid fa-cloud-showers-heavy"></i>
+              </button>
             </div>
           </table>
           <table id="tabell">
@@ -57,6 +70,9 @@
         </div>
       </div>
     </main>
+    <footer id="fot">
+      <p>&copy; 2026 Väderapp. Alla rättigheter förbehållna Till Robernator.</p>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>
